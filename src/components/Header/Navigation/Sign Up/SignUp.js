@@ -1,12 +1,15 @@
 /* eslint-disable no-undef */
-import {auth} from '../Firebase/auth'
+import {auth ,db} from '../../../../Firebase/auth'
 import {useState} from 'react'
+
+
 
 const SignUp = () => {
  
 
 const [email,setEmail] = useState(' ') 
 const [password,setPassword] = useState(' ')
+const [username,setUsername] = useState('')
 
 let handleSubmit = (e) =>{
     e.preventDefault()
@@ -15,7 +18,13 @@ let handleSubmit = (e) =>{
   .then((userCredential) => {
     // Signed in 
     var user = userCredential.user;
-    console.log(user)
+    console.log(user.email)
+
+    db.collection('user').doc(user.uid).set({
+        
+        username,
+        email
+    })
     // ...
   })
   .catch((error) => {
@@ -37,7 +46,21 @@ let handleSubmit = (e) =>{
         <div>
 
             <h2>Sign Up</h2>
+
+
+
+
+
+
             <form onSubmit = {handleSubmit}>
+
+                <label htmlFor="username">Enter username</label>
+                <input
+                type="username"
+                onChange = {(e) => setUsername(e.target.value)}
+                required
+                />
+
                 <label htmlFor="email">Enter email</label>
                 <input 
                 type="email"
@@ -52,8 +75,11 @@ let handleSubmit = (e) =>{
                 onChange = {(e) => setPassword(e.target.value)} 
                 required/>
 
+
+
                <button>Sign Up</button>
             </form>
+                
         </div>
 
      );

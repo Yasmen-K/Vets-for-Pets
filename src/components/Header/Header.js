@@ -1,4 +1,4 @@
-import Navigation from './Navigation'
+import Navigation from './Navigation/Navigation'
 
 
 const Header = () => {
@@ -6,6 +6,7 @@ const Header = () => {
         
         <div>
             <Navigation/>
+            <h1 className='is-link'>Header</h1>
         </div>
      );
 }
