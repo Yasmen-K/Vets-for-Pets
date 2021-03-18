@@ -6,7 +6,7 @@ const Header = () => {
         
         <div>
             <Navigation/>
-            <h1 className='is-link'>Header</h1>
+            
         </div>
      );
 }

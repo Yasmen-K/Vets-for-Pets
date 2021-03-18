@@ -1,5 +1,9 @@
 import {useState} from 'react'
-import {auth} from '../Firebase/auth'
+
+import {auth, db } from '../../../../Firebase/auth'
+import eventBus from '../../../../EventBus/EventBus'
+
+
 
 
 const LogIn = () => {
@@ -7,29 +11,45 @@ const LogIn = () => {
 
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
-
+    const [logged,setLogged] = useState('')
     
-    const handleSubmit = (e) =>{
+    
+    
+    //handleSubmit(e,email,password)
+    function handleSubmit(e,email,password){
         e.preventDefault()
-
+        
         auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             // Signed in
             var user = userCredential.user;
-            console.log(user)
+            setLogged(true)
+            
             // ...
+            
+            
+            
+            db.collection('user').doc(user.uid).get()
+            .then(doc =>{
+                console.log(doc.data())
+            })
+            .catch(err =>{
+                console.log(err.message)
+            })
+        
+            
         })
         .catch((error) => {
             //var errorCode = error.code;
+            
             var errorMessage = error.message;
             console.log(errorMessage)
+            
         });
-
+    
     }
     
-    
-    
-    
+    eventBus.dispatch('handleSubmit',logged)
     
     
     return ( 
@@ -37,7 +57,7 @@ const LogIn = () => {
         <div>
             <h2>Log In</h2>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={(e) => handleSubmit(e,email,password)}>
 
             <label htmlFor="email">Enter email</label>
             <input 
@@ -57,6 +77,8 @@ const LogIn = () => {
             <button>Log In</button>
 
             </form>
+
+           
         </div>
      );
 }
