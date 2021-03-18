@@ -22,12 +22,17 @@ const Navigation = () => {
     return ( 
         <div>
 
-            {!logged ? (
-                
-            <ul>
+            <ul className="main-navigation">
                 <li>
                     <Link to ='/'>Home</Link>
                 </li>
+                
+            </ul>
+            
+            
+            {!logged ? (
+                
+                <ul className="additional-naviagation">
                     <li>
                     <Link to="/login">Log In</Link>    
                     </li> 
@@ -35,22 +40,21 @@ const Navigation = () => {
                     <li>
                         <Link to="/signup">Sign up</Link>
                     </li>
-                
-            </ul>
-            ):(
+                    </ul>
+                    ):(
 
-                <ul>
+                        <ul className='additional-navigation'>
 
                     <li>
                     <Link to='/account'>Account</Link>
                     </li>
+                        </ul>
 
-                </ul>
 
-            )
-            
-            
-            }
+                    )
+
+
+                    }
             
 
             

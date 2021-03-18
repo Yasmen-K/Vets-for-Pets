@@ -1,10 +1,10 @@
 import Navigation from './Navigation/Navigation'
-
+import style from './Header.module.css'
 
 const Header = () => {
     return ( 
         
-        <div>
+        <div className={style['main-container']}>
             <Navigation/>
             
         </div>
