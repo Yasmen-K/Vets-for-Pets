@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom'
 import eventBus from '../../../EventBus/EventBus'
 import {useState,useEffect} from 'react'
+import styles from './Navigation.module.css'
 
 
 
@@ -20,19 +21,22 @@ const Navigation = () => {
     })
     
     return ( 
-        <div>
+        <div className={styles['main-container']}>
 
-            <ul className="main-navigation">
+            <ul className={styles["main-navigation"]}>
                 <li>
                     <Link to ='/'>Home</Link>
                 </li>
-                
+                    <li>
+                    <Link to='/services'>Services</Link>
+
+                    </li>
             </ul>
             
             
             {!logged ? (
                 
-                <ul className="additional-naviagation">
+                <ul className={styles['additional-navigation']}>
                     <li>
                     <Link to="/login">Log In</Link>    
                     </li> 
@@ -43,7 +47,7 @@ const Navigation = () => {
                     </ul>
                     ):(
 
-                        <ul className='additional-navigation'>
+                        <ul className={styles['additional-navigation']}>
 
                     <li>
                     <Link to='/account'>Account</Link>

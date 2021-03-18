@@ -1,0 +1,32 @@
+.logIn-form{
+    margin: 50px auto;
+    display: block;
+    width: 300px;
+    padding: 60px;
+    border:2px solid black;
+    border-radius: 4px;
+   
+    
+}
+
+.logIn-form input{
+    width: 200px;
+    display: block;
+    margin: auto;
+    border-radius: 4px;
+    
+    
+}
+
+.logIn-form label{
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+
+.logIn-form button{
+    margin:15px auto;
+    display: block;
+
+
+}
