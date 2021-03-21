@@ -7,6 +7,7 @@ function handleSubmit(e,email,password,setLogged){
     .then((userCredential) => {
         // Signed in
         var user = userCredential.user;
+        
         setLogged(true)
         
         // ...

@@ -1,0 +1,19 @@
+.side-nav{
+    border: 2px outset black;
+    width: 220px;
+    padding-bottom: 10%;
+    margin-top: 30px;
+    margin-left: 20px;
+    background-color: lightskyblue;
+    border-radius: 4px;
+}
+
+.side-nav li{
+    
+    text-align: center;
+    padding: 10px;
+}
+
+.side-nav i{
+    padding-right: 10px;
+}

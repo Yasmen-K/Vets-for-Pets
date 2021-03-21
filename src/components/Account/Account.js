@@ -1,6 +1,12 @@
+import SideNav from './SideNav/SideNav'
+
+
 const Account = () => {
     return ( 
-        <h1>Hello to my account</h1>
+        <div>
+            <h1>Account</h1>
+            <SideNav/>
+        </div>
      );
 }
  

@@ -4,6 +4,7 @@ import LogIn from '../components/Header/Navigation/LognIn/LogIn'
 import SignUp from '../components/Header/Navigation/Sign Up/SignUp'
 import Account from '../components/Account/Account'
 import Services from '../components/Services/Services'
+import PetInformation from '../components/Account/PetInformation/PetInformation'
 const AppRoutes = () => {
     return ( 
         <div>
@@ -13,6 +14,7 @@ const AppRoutes = () => {
         <Route path="/signup" component={SignUp}/>
         <Route path='/account' component={Account}/>
         <Route path='/services'component={Services}/>
+        <Route path="/petinformation" component={PetInformation}/>
 
         </div>
 

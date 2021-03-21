@@ -24,11 +24,14 @@ const LogIn = () => {
     
     return ( 
 
-        <div>
-            <h2>Log In</h2>
+        <div className={styles["main-container"]}>
+            
 
+            
+            <img src="Black-German-Shepherd.jpg" alt="" className={styles["image-container"]}/>
             <form onSubmit={(e) => handleSubmit(e,email,password,setLogged)} className={styles["logIn-form"]} >
-            <img src='Black-German-Shepherd.jpg' alt=""/>
+            <h1 className={styles["login-message"]}>Member Login</h1>
+
             <label htmlFor="email">Enter email</label>
             <input 
             type="email"
@@ -40,6 +43,7 @@ const LogIn = () => {
             <label htmlFor="password">Enter password</label>
             <input 
             type="password"
+            
             onChange = {(e) => setPassword(e.target.value)}
             required
             />

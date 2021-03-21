@@ -1,7 +1,8 @@
 import {useState} from 'react'
+import styles from './PetInformation.module.css'
 
 
-const OnewrPetInfoForm = () => {
+const PetInformation = () => {
 
     let [ownerName,setOwnerName] = useState(' ');
     
@@ -12,12 +13,12 @@ const OnewrPetInfoForm = () => {
     }
 
     return ( 
-        <form onSubmit = {handleSubmit}>
-
-            <label htmlFor="owner-name">Owner Name</label>
-            <input type="text"  onChange = {(e) => setOwnerName(e.target.value)}/>
+        <form onSubmit = {handleSubmit} className={styles['pet-form']}>
 
             <label htmlFor="pet-name">Pet Name</label>
+            <input type="text"/>
+
+            <label htmlFor="pet-age">Pet Age</label>
             <input type="text"/>
 
             <label htmlFor="pet-type">Pet type</label>
@@ -37,4 +38,4 @@ const OnewrPetInfoForm = () => {
      );
 }
  
-export default OnewrPetInfoForm;
+export default PetInformation;

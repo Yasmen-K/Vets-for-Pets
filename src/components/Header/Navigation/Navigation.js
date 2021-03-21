@@ -15,9 +15,11 @@ const Navigation = () => {
     
     useEffect(() =>{
         
-        eventBus.on('handleSubmit',(data) =>{
+       eventBus.on('handleSubmit',(data) =>{
             setLogged(data)
         })
+
+        return null
     })
     
     return ( 

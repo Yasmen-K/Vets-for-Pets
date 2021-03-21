@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import 'firebase/database'
 
 
 var firebaseConfig = {
@@ -16,5 +17,6 @@ var firebaseConfig = {
 
   let auth = firebase.auth()
   let db = firebase.firestore()
+  let realtimeDB = firebase.database();
 
-  export {auth ,db}
+  export {auth ,db,realtimeDB}

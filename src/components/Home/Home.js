@@ -1,6 +1,12 @@
+import HomeContent from './HomeContent/HomeContent'
+
 const Home = () => {
     return ( 
-        <h1>Home page</h1>
+        <div>
+
+            <h1>Home page</h1>
+            <HomeContent/>
+        </div>
      );
 }
  
