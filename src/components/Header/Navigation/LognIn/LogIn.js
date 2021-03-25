@@ -1,60 +1,84 @@
-import {useState} from 'react'
+/* eslint-disable no-unused-vars */
 
-import handleSubmit  from './LogInAuth'
-import eventBus from '../../../../EventBus/EventBus'
-import styles from './LogIn.module.css'
 
+import LogInForm from './LogInForm/LogInForm'
+import {useState,useEffect} from 'react'
+
+
+import {auth} from '../../../../Firebase/auth'
+import EventBus from '../../../../EventBus/EventBus'
+import {useHistory } from 'react-router-dom'
 
 
 
 const LogIn = () => {
     
-
+    
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
-    const [logged,setLogged] = useState('')
+    const [userUid,setUserUid] = useState('')
+    
+    
+    let history = useHistory()
     
     
     
+    function handleSubmit(e){
+        e.preventDefault()
+        console.log(e.target.email.value)
+        setEmail(e.target.email.value)
+        setPassword(e.target.password.value)
+    }
+    
+    useEffect(() =>{
+            auth.signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Signed in
+                var user = userCredential.user;
+                
+                let userUid= user.uid
+                
+                setUserUid(user.uid)
+                history.push('/account',{userUid})
+                
+                EventBus.dispatch('handleSubmit',userUid)
+                
+                
+            })
+            .catch((error) => {
+                //var errorCode = error.code;
+                
+                var errorMessage = error.message;
+                console.log(errorMessage)
+                
+            });
+            
+            
+        })
+            
+        
+        
+
+
     
     
     
-    eventBus.dispatch('handleSubmit',logged)
-    
+
     
     return ( 
+        
+        <div>
+           
+            <LogInForm handleSubmit={handleSubmit} password={password} email={email}/>
+                
 
-        <div className={styles["main-container"]}>
-            
-
-            
-            <img src="Black-German-Shepherd.jpg" alt="" className={styles["image-container"]}/>
-            <form onSubmit={(e) => handleSubmit(e,email,password,setLogged)} className={styles["logIn-form"]} >
-            <h1 className={styles["login-message"]}>Member Login</h1>
-
-            <label htmlFor="email">Enter email</label>
-            <input 
-            type="email"
-            onChange = {(e) => setEmail(e.target.value)}
-            required
-            />
-
-
-            <label htmlFor="password">Enter password</label>
-            <input 
-            type="password"
-            
-            onChange = {(e) => setPassword(e.target.value)}
-            required
-            />
-
-            <button>Log In</button>
-
-            </form>
+           
 
            
         </div>
      );
 }
+
+
  
-export default LogIn ;
+export default LogIn;

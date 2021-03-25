@@ -1,7 +1,8 @@
 import {Link} from 'react-router-dom'
-import eventBus from '../../../EventBus/EventBus'
-import {useState,useEffect} from 'react'
+
 import styles from './Navigation.module.css'
+import {useState} from 'react'
+import EventBus from '../../../EventBus/EventBus'
 
 
 
@@ -10,17 +11,16 @@ import styles from './Navigation.module.css'
 
 const Navigation = () => {
     
-    const [logged,setLogged] = useState('')
-    console.log(logged)
     
-    useEffect(() =>{
-        
-       eventBus.on('handleSubmit',(data) =>{
-            setLogged(data)
-        })
+    const [logged,setLogged] = useState('')
 
-        return null
-    })
+   
+            EventBus.on('handleSubmit',(data)=>{
+                setLogged(data)
+            })
+    
+    
+    
     
     return ( 
         <div className={styles['main-container']}>

@@ -10,12 +10,12 @@ const SideNav = () => {
         <ul>
 
             <li>
-                <i class="fas fa-paw"></i>
+                <i className="fas fa-paw"></i>
                 <Link to='/petinformation'>Pet Information</Link>
             </li>
              
             <li>
-                <i class="fas fa-user-edit"></i>
+                <i className="fas fa-user-edit"></i>
                 <Link to='/ownerinformation'>Owner Information</Link>
             </li> 
 
