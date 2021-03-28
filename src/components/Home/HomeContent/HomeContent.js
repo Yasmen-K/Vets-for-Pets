@@ -1,37 +1,46 @@
-import {useEffect,useState} from 'react'
+import {Component} from 'react'
+import styles from './HomeContent.module.css'
+class HomeContent extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            mainContent:[]
+         }
+    }
 
-
-const HomeContent = () => {
-
-    const [titles,setTitles] = useState('')
-    const [content,setContent] = useState('')
-
-    useEffect(() =>{
-        fetch(`https://vets-for-pets-80140-default-rtdb.firebaseio.com/-MWGAtWwRT5U_DIFEz59.json`)
+    componentDidMount(){
+        fetch(`https://vets-for-pets-80140-default-rtdb.firebaseio.com/main.json`)
         .then(res => res.json())
         .then(data =>{
-            let titles = data['Titles']
-            console.log(data)
-            setTitles(titles)
-            
-            let content = data['Content']
-            setContent(content)
+            console.log(data.img)
+           this.setState({mainContent:data})
             
         })
         .catch(err =>{
             console.log(err.message)
         })
-    },[])
-    return ( 
-                <div>
+    }
+    render() { 
+        return ( 
+           <div className={styles['main-container']}>
 
-                    <h1>Home Content</h1>
-                    {titles && <h1>{titles}</h1>}
-                    {content && <p>{content}</p>}
+                    
+                  {this.state.mainContent.map(x=>
+                        <div key={x.id}>
+                        <h1>{x.title}</h1>
+                    <div  className={styles['flex-wrapper']}>
+                        <p>{x.content}</p>
+                        <img src={x.img} alt="" className={styles[x.id]}/>
+                        </div>
+
+                        </div>
+                    )}
+                    
                 </div>
-
-
-     );
+         );
+    }
 }
  
-export default HomeContent;
+export default HomeContent ;
+
+

@@ -24,6 +24,7 @@ const Navigation = () => {
     
     return ( 
         <div className={styles['main-container']}>
+            
 
             <ul className={styles["main-navigation"]}>
                 <li>
@@ -36,7 +37,7 @@ const Navigation = () => {
             </ul>
             
             
-            {!logged ? (
+            
                 
                 <ul className={styles['additional-navigation']}>
                     <li>
@@ -47,7 +48,7 @@ const Navigation = () => {
                         <Link to="/signup">Sign up</Link>
                     </li>
                     </ul>
-                    ):(
+                    
 
                         <ul className={styles['additional-navigation']}>
 
@@ -57,10 +58,10 @@ const Navigation = () => {
                         </ul>
 
 
-                    )
+                    
 
 
-                    }
+                    
             
 
             
