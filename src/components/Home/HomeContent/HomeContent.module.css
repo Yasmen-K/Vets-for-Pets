@@ -1,7 +1,9 @@
 .main-container{
     width: 70%;
-    margin: 0 auto;   
-    margin-top: 12px;
+    margin: 0 auto;  
+    margin-bottom: 5%;
+     
+    
 }
 
 
@@ -46,13 +48,12 @@
     text-align: center;
 }
 
-h1{
+h3{
  
-    margin-left: 20px;
-    margin-top: 40px;
+    margin-top: 4%;
     text-align: center;
     color: #00b4d8;
-    font-weight: bolder;
+    
 }
 
 

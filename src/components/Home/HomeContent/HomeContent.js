@@ -27,7 +27,7 @@ class HomeContent extends Component {
                     
                   {this.state.mainContent.map(x=>
                         <div key={x.id}>
-                        <h1>{x.title}</h1>
+                        <h3>{x.title}</h3>
                     <div  className={styles['flex-wrapper']}>
                         <p>{x.content}</p>
                         <img src={x.img} alt="" className={styles[x.id]}/>

@@ -1,10 +1,11 @@
 import HomeContent from './HomeContent/HomeContent'
+import styles from './Home.module.css'
 
 const Home = () => {
     return ( 
-        <div className="main-wrapper">
+        <div className={styles["main-wrapper"]}>
 
-            <h1>Home page</h1>
+            
             <HomeContent/>
         </div>
      );

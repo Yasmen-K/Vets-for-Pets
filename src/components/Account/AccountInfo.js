@@ -1,12 +1,11 @@
-import {db} from '../../Firebase/auth'
-import {useState,useEffect} from 'react'
+
 
 
 
 const AccountInfo = ({user}) => {
     
     
-   const [userData,setUserData] = useState('')
+  
         
     //  useEffect(() =>{
     //      db.collection('user').doc(user).get()

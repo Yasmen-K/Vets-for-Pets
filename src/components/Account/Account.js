@@ -5,6 +5,8 @@ import AccountInfo from './AccountInfo'
 import {useState,useEffect} from 'react'
 import EventBus from '../../EventBus/EventBus'
 
+import styles from './Account.module.css'
+
 const Account = () => {
 
     const [user,setUserUid] = useState('')
@@ -16,7 +18,7 @@ const Account = () => {
         })
         
         return ( 
-        <div>
+        <div className={styles['wrapper']}>
             
             <SideNav/>
             <AccountInfo user={user}/>
