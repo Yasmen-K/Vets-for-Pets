@@ -1,8 +1,7 @@
 import {Link} from 'react-router-dom'
 
 import styles from './Navigation.module.css'
-import {useState} from 'react'
-import EventBus from '../../../EventBus/EventBus'
+
 
 
 
@@ -12,12 +11,10 @@ import EventBus from '../../../EventBus/EventBus'
 const Navigation = () => {
     
     
-    const [logged,setLogged] = useState('')
+   
 
    
-            EventBus.on('handleSubmit',(data)=>{
-                setLogged(data)
-            })
+            
     
     
     

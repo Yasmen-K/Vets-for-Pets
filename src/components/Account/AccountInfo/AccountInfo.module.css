@@ -1,0 +1,8 @@
+.pets-displayed{
+    color: brown;
+    border: 2px solid black;
+}
+
+.pets-displayed .active{
+    display: none;
+}

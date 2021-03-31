@@ -11,12 +11,22 @@ const SideNav = () => {
 
             <li>
                 <i className="fas fa-paw"></i>
-                <Link to='/petinformation'>Pet Information</Link>
+                <Link to="/petinformation">Pet Information</Link>
             </li>
              
+           
+
             <li>
-                <i className="fas fa-user-edit"></i>
+                 <i className="fas fa-user-edit"></i>
                 <Link to='/ownerinformation'>Owner Information</Link>
+            </li>
+
+             <li>
+                <Link to="/addstory">Share Your Story</Link>
+            </li>
+
+            <li>
+                {/* <Link>Make an appointment</Link> */}
             </li> 
 
         </ul>

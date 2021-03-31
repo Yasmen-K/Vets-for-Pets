@@ -1,39 +1,57 @@
-import {useState} from 'react'
-import styles from './PetInformation.module.css'
+
+
+import PetForm from './PetForm/PetForm'
+import {db} from '../../../Firebase/auth'
 
 
 const PetInformation = () => {
 
-    let [ownerName,setOwnerName] = useState(' ');
-    
+    // let [petName,setPetName] = useState('');
+    // let [petAge,setPetAge] = useState('')
+    // let [petType,setPetType] = useState('')
+    // let [petBreed,setPetBreed] = useState('')
+    let userUid = 'vqcWIUj9oHaVRtFJ1VFwVe6GgNR2'
     
     const handleSubmit = (e) =>{
         e.preventDefault()
-        console.log(ownerName)
+        console.log(e.target["pet-type"].value)
+
+        // db.collection('user').doc(userUid).set({
+        //     petName:e.target["pet-name"].value,
+        //     petAge:e.target["pet-age"].value,
+        //     petType:e.target["pet-type"].value,
+        //     petBreed:e.target["pet-breed"].value
+
+
+        // },{merge:true})
+        // .then(res =>{
+        //     console.log(res)
+        // })
+        // .catch(err =>{
+        //     console.log(err.message)
+        // })
+        
+        // db.collection('user').doc(userUid).collection('Pets').doc('lWcnHqf0beTrPoXzAqC2').get()
+        // .then(res =>{
+        //     console.log(res.data())
+        // })
+
+        db.collection('user').doc(userUid).collection('Pets').doc(e.target['pet-name'].value).set({
+            petName:e.target["pet-name"].value,
+            petAge:e.target["pet-age"].value,
+            petType:e.target["pet-type"].value,
+            petBreed:e.target["pet-breed"].value
+        })
+        .then(res =>{
+            console.log(res)
+        })
+        
     }
 
     return ( 
-        <form onSubmit = {handleSubmit} className={styles['pet-form']}>
-
-            <label htmlFor="pet-name">Pet Name</label>
-            <input type="text"/>
-
-            <label htmlFor="pet-age">Pet Age</label>
-            <input type="text"/>
-
-            <label htmlFor="pet-type">Pet type</label>
-            <select name="pet-type">
-                <option>Dog</option>
-                <option>Cat</option>
-                <option>Bird</option>
-                
-            </select>
-
-            <label htmlFor="breed">Pet Breed</label>
-            <input type="text"/>
-
-            <button>Submit</button>
-        </form>
+        <div>
+            <PetForm handleSubmit={handleSubmit}/>
+        </div>
 
      );
 }

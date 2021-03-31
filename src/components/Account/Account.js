@@ -1,27 +1,41 @@
 /* eslint-disable no-unused-vars */
 import SideNav from './SideNav/SideNav'
 
-import AccountInfo from './AccountInfo'
-import {useState,useEffect} from 'react'
-import EventBus from '../../EventBus/EventBus'
+import AccountInfo from './AccountInfo/AccountInfo'
+import {useEffect,useState} from 'react'
 
 import styles from './Account.module.css'
 
+
+
 const Account = () => {
 
-    const [user,setUserUid] = useState('')
+    let userUid = 'vqcWIUj9oHaVRtFJ1VFwVe6GgNR2'
+
+    const [userData,setData] = useState([])
     
-   
-        EventBus.on('handleSubmit',(userUid) =>{
-        
-            setUserUid(userUid)
-        })
-        
+        // useEffect(() =>{
+        //     // db.collection('user').doc(userUid).get()
+        //     // .then(res =>{
+        //     //     console.log(res.data())
+        //     //     setData(res.data())
+        //     // })
+
+        //     db.collection('user').doc(userUid).collection('Pets').get()
+        //     .then(res =>{
+        //         res.forEach(x =>{
+                    
+        //             setData(x.data())
+        //         })
+        //     })
+        // },[userUid])
+     
+        console.log(userData)
         return ( 
         <div className={styles['wrapper']}>
             
             <SideNav/>
-            <AccountInfo user={user}/>
+            <AccountInfo userData = {userUid}/>
         </div>
      );
 }
