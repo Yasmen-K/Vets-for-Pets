@@ -1,13 +1,23 @@
 .main-container{
     padding: 0;
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: 2;
+    border: 2px solid black;
+    grid-column: 1/11;
+    grid-row: 2;
 }
 
 .main-navigation{
     list-style-type: none;
     margin: 0;
     padding: 0;
+    
+    grid-column: 4/8;
+    grid-row: 1;
+    justify-self: end;
+    align-self:end;
     display: inline;
-    float: right;
 }
 
 
@@ -18,15 +28,61 @@
 }
 
 .additional-navigation{
+    grid-column: 8/10;
+    justify-self: stretch;
+    align-self: end;
     display: inline;
-    float: right;
+    grid-row: 1;
+    padding: 0;
+    margin: 0;
 }
 
+
 .additional-navigation li{
+    
     display: inline;
     padding: 10px;
     
-    
+}
+
+
+
+.account-navigation{
+    grid-column: 10/11 ;
+    justify-self: start;
+    align-self: end;
+    grid-row: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.account-navigation li{
+    list-style: none;
+
+}
+
+
+
+a{
+    text-decoration: none;
+    font-size: large;
+}
+
+
+.clinic-icon{
+    grid-column: 1/2;
+    grid-row: 1;
+    margin-top: 10%;
+    width: 50%;
+    justify-self: end;
+    align-self: end;
+}
+
+.clinic-name{
+    grid-column: 2/4;
+    grid-row: 1;
+    justify-self: start;
+    align-self: end;
 }
 
 

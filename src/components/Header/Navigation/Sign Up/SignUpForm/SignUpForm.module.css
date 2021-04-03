@@ -11,8 +11,9 @@
 }
 
 
-.logIn-form{
-    
+
+
+.signup-form{
     display: inline;
     grid-column: 1/4;
     grid-row: 1;
@@ -21,6 +22,7 @@
     border-left: 2px outset lightgray;
     background-color: white;
     
+    
  
 
     
@@ -28,8 +30,7 @@
 
 
 
-.logIn-form input{
-    
+.signup-form input{
     width: 250px;
     display: block;
     border: none;
@@ -42,11 +43,11 @@
     
 }
 
-.logIn-form input:focus{
+.signup-form input:focus{
    outline: none;
 }
 
-.logIn-form label{
+.signup-form label{
     display: block;
     text-align: left;
     text-transform: uppercase;
@@ -55,10 +56,9 @@
     margin: 5% auto;
     text-align: center;
     
-    
 }
 
-.logIn-form button{
+.signup-form button{
     
     display: block;
     margin:5% auto;
@@ -68,16 +68,18 @@
     color: white;
     border: none;
     
+    
 
 
 }
 
-.logIn-form button:focus{
+.signup-form button:focus{
     outline: none;
     
 }
 
 .image-container{
+  
     display: inline;
     grid-column: 4/7;
     padding: 0;
@@ -93,8 +95,7 @@
   
 }
 
-.login-message{
-    
+.signup-message{
     font-weight: bolder;
     font-size: 20px;
     margin: 10% auto;

@@ -3,6 +3,8 @@ import {auth ,db} from '../../../../Firebase/auth'
 import {useState} from 'react'
 import styles from './SignUp.module.css'
 
+import SignUpForm from './SignUpForm/SignUpForm'
+
 
 
 const SignUp = () => {
@@ -10,10 +12,12 @@ const SignUp = () => {
 
 const [email,setEmail] = useState(' ') 
 const [password,setPassword] = useState(' ')
-const [username,setUsername] = useState('')
+
 
 let handleSubmit = (e) =>{
     e.preventDefault()
+    setPassword(e.target.password.value)
+    setEmail(e.target.email.value)
 
     auth.createUserWithEmailAndPassword(email, password)
   .then((userCredential) => {
@@ -23,7 +27,7 @@ let handleSubmit = (e) =>{
 
     db.collection('user').doc(user.uid).set({
         
-        username,
+       
         email
     })
     // ...
@@ -34,6 +38,9 @@ let handleSubmit = (e) =>{
     console.log(errorMessage)
     // ..
   });
+
+  e.target.password.value = ''
+  e.target.email.value = ''
  
 }
 
@@ -42,38 +49,9 @@ let handleSubmit = (e) =>{
  
 
     return ( 
-            <div>
+            <div className={styles['sign-up-wrapper']}>
 
-
-                  <img src="Parrot2.jpg" alt="" className={styles['image-container']}/>
-              <form onSubmit = {handleSubmit} className={styles['signup-form']}>
-  
-                  <h2 className={styles['signup-message']} >Sign Up</h2>
-                  <label htmlFor="username">Enter username</label>
-                  <input
-                  type="username"
-                  onChange = {(e) => setUsername(e.target.value)}
-                  required
-                  />
-  
-                  <label htmlFor="email">Enter email</label>
-                  <input 
-                  type="email"
-                  //value = {email} 
-                  onChange = {(e) => setEmail(e.target.value) }
-                  required/>
-  
-                  <label htmlFor="password">Enter password</label>
-                  <input 
-                  type="password"
-                 // value = {password}
-                  onChange = {(e) => setPassword(e.target.value)} 
-                  required/>
-  
-  
-  
-                 <button>Sign Up</button>
-              </form>
+            <SignUpForm handleSubmit={handleSubmit}/>
                   
 
             </div>

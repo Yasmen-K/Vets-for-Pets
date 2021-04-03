@@ -22,6 +22,9 @@ const Navigation = () => {
     return ( 
         <div className={styles['main-container']}>
             
+            <h1 className={styles['clinic-name']}>Vets for Pets</h1>
+
+            <img src="dog.png" alt="vets-for-pets-icon" className={styles['clinic-icon']}/>
 
             <ul className={styles["main-navigation"]}>
                 <li>
@@ -51,7 +54,7 @@ const Navigation = () => {
                     </ul>
                     
 
-                        <ul className={styles['additional-navigation']}>
+                        <ul className={styles['account-navigation']}>
 
                     <li>
                     <Link to='/account'>Account</Link>

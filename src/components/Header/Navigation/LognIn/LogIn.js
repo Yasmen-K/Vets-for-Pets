@@ -9,6 +9,8 @@ import {auth} from '../../../../Firebase/auth'
 import EventBus from '../../../../EventBus/EventBus'
 import {useHistory } from 'react-router-dom'
 
+import styles from './LogIn.module.css'
+
 
 
 const LogIn = () => {
@@ -25,56 +27,43 @@ const LogIn = () => {
     
     function handleSubmit(e){
         e.preventDefault()
-        console.log(e.target.email.value)
+      
         setEmail(e.target.email.value)
         setPassword(e.target.password.value)
-    }
-    
-    useEffect(() =>{
-            auth.signInWithEmailAndPassword(email, password)
-            .then((userCredential) => {
-                // Signed in
-                var user = userCredential.user;
-                
-                let userUid= user.uid
-                
-                setUserUid(user.uid)
-                history.push('/account',{userUid})
-                
-                EventBus.dispatch('handleSubmit',userUid)
-                
-                
-            })
-            .catch((error) => {
-                //var errorCode = error.code;
-                
-                var errorMessage = error.message;
-                console.log(errorMessage)
-                
-            });
+        auth.signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // Signed in
+            var user = userCredential.user;
+            
+            let userUid= user.uid
+            
+            setUserUid(user.uid)
+            history.push('/account',{userUid})
+            
+            EventBus.dispatch('handleSubmit',userUid)
             
             
         })
+        .catch((error) => {
+            //var errorCode = error.code;
             
-        
-        
+            var errorMessage = error.message;
+            console.log(errorMessage)
+            
+        });
 
-
-    
-    
+        e.target.password.value = ''
+        e.target.email.value =""
+    }
     
 
     
     return ( 
         
-        <div>
+        <div className={styles['main']}>
            
             <LogInForm handleSubmit={handleSubmit} password={password} email={email}/>
                 
-
-           
-
-           
         </div>
      );
 }
