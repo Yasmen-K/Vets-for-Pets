@@ -14,14 +14,15 @@ class PatientStories extends Component {
     }
 
     componentDidMount(){
-        db.collection('stories').doc(this.state.userUid).collection('Pets')
+        db.collection('stories')
         .onSnapshot(res =>{
             let array = [];
-
+            
             res.forEach(x =>{
                 array.push(x.data())
             })
-            //setData(array)
+            this.setState({stories:array})
+            console.log(this.state.stories)
         }) 
     }
 
@@ -30,6 +31,15 @@ class PatientStories extends Component {
             <div className={styles['main']}>
 
                 <h1>TAILS FROM THE CLINIC</h1>
+                    <div className={styles['data-wrapper']}>
+
+                {this.state.stories.map(x =>
+                    <div className={styles['stories-wrapper']}>
+                        <h1>{x.title}</h1>
+                        <p>{x.content}</p>
+                    </div>
+                    )}
+                    </div>
             </div>
          );
     }

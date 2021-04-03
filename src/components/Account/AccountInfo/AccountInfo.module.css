@@ -3,10 +3,11 @@
     grid-column: 3 /10;
     display: grid;
 
-    grid-template-columns: repeat(3,2fr);
+    grid-template-columns: repeat(3,1fr);
     column-gap: 5%;
     row-gap: 15%;
-    margin-top: 5%;
+    margin-top: 4%;
+    border: 2px solid black;
     
     
     

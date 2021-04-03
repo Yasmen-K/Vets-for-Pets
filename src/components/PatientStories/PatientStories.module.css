@@ -1,4 +1,26 @@
 .main{
     border: 2px solid black;
-    margin-top: 20%;
+    margin-top: 8%;
+    /* display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(2); */
 }
+
+/* .main h1{
+    grid-row: 1;
+    grid-column: 5/9;
+} */
+
+.data-wrapper{
+    grid-row: 2;
+    grid-column: 2/11;
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    column-gap: 10px;
+
+
+} 
+
+
+
+
