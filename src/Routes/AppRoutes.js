@@ -6,11 +6,14 @@ import Account from '../components/Account/Account'
 import Services from '../components/Services/Services'
 import PetInformation from '../components/Account/PetInformation/PetInformation'
 import OwnerInformation from '../components/Account/OwnerInformation/OwnerInformation'
-import AddStory from '../components/Account/AddStory/AddStory'
+import ShareYourStory from '../components/Account/ShareYourStory/ShareYourStory'
+import PatientStories from '../components/PatientStories/PatientStories'
+import SeeYourStories from '../components/Account/SeeYourStories/SeeYourStories'
 const AppRoutes = () => {
     return ( 
         <div>
-            
+            <Switch>
+
 
 
         <Route path='/' exact component={Home}/>
@@ -20,14 +23,11 @@ const AppRoutes = () => {
         <Route path='/services'component={Services}/>
         <Route path="/petinformation" component={PetInformation}/>
         <Route path="/ownerinformation" component={OwnerInformation}/>
-        <Route path="/addstory" component={AddStory}/>
-           
-       
+        <Route path="/shareyourstory" component={ShareYourStory}/>
+        <Route path="/patientstories" component={PatientStories}/>
+        <Route path="/seeyourstories" component={SeeYourStories}/>
 
-
-           
-
-        
+            </Switch>
 
         </div>
 

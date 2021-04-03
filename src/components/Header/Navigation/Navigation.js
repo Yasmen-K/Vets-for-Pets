@@ -31,6 +31,10 @@ const Navigation = () => {
                     <Link to='/services'>Services</Link>
 
                     </li>
+
+                    <li>
+                        <Link to="/patientstories">Patient Stories</Link>
+                    </li>
             </ul>
             
             

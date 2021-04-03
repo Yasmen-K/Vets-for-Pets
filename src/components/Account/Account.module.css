@@ -1,4 +1,9 @@
 .wrapper{
-    border: 2px solid black;
+    
     margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows:repeat(4,30%);
 }
+
+

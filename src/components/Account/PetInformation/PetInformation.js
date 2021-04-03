@@ -3,6 +3,8 @@
 import PetForm from './PetForm/PetForm'
 import {db} from '../../../Firebase/auth'
 
+import SideNav from '../SideNav/SideNav'
+
 
 const PetInformation = () => {
 
@@ -50,6 +52,7 @@ const PetInformation = () => {
 
     return ( 
         <div>
+            <SideNav/>
             <PetForm handleSubmit={handleSubmit}/>
         </div>
 

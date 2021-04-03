@@ -22,7 +22,12 @@ const SideNav = () => {
             </li>
 
              <li>
-                <Link to="/addstory">Share Your Story</Link>
+                <Link to="/shareyourstory">Share Your Story</Link>
+            </li>
+
+
+            <li>
+                <Link to="/seeyourstories">See Your Stories</Link>
             </li>
 
             <li>

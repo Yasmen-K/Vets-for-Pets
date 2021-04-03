@@ -1,10 +1,12 @@
 import styles from './OwnerInformation.module.css'
+import SideNav from '../SideNav/SideNav'
 
 
 const OwnerInformation = () => {
     return ( 
-        
-      
+        <div>
+
+        <SideNav/>
 
         <form className={styles['container']}>
             <div className={styles['main']}>
@@ -22,6 +24,7 @@ const OwnerInformation = () => {
         <img src="OwnerInfromation.jpg" alt=""/>
         
         </form>
+        </div>
 
 
         

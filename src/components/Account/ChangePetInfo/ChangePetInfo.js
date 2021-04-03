@@ -16,7 +16,7 @@ const ChangePetInfo = ({petName,resetPetChange}) => {
             console.log(res)
         })
 
-        resetPetChange(true)
+        resetPetChange(true,true)
 
     }
 

@@ -35,7 +35,7 @@ const Account = () => {
         <div className={styles['wrapper']}>
             
             <SideNav/>
-            <AccountInfo userData = {userUid}/>
+            <AccountInfo userData = {userUid} className={styles['account-info']}/>
         </div>
      );
 }
