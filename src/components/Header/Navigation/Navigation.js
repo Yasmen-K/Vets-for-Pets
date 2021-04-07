@@ -2,29 +2,21 @@ import {Link} from 'react-router-dom'
 
 import styles from './Navigation.module.css'
 
-
-
-
-
-
+import {useContext} from 'react'
+import userContext from '../../../contexts/UserContext'
 
 const Navigation = () => {
     
+    const {user} = useContext(userContext)
     
-   
-
-   
-            
-    
-    
-    
-    
-    return ( 
+     return ( 
         <div className={styles['main-container']}>
             
             <h1 className={styles['clinic-name']}>Vets for Pets</h1>
 
-            <img src="dog.png" alt="vets-for-pets-icon" className={styles['clinic-icon']}/>
+            <img src="images/dog.png" alt="vets-for-pets-icon" className={styles['clinic-icon']}/>
+
+            
 
             <ul className={styles["main-navigation"]}>
                 <li>
@@ -41,9 +33,18 @@ const Navigation = () => {
             </ul>
             
             
-            
-                
-                <ul className={styles['additional-navigation']}>
+                {user ? (
+
+                    
+                    <ul className={styles['account-navigation']}>
+
+                    <li>
+                    <Link to='/account'>Account</Link>
+                    </li>
+                     </ul>
+                        
+                ):(
+                    <ul className={styles['additional-navigation']}>
                     <li>
                     <Link to="/login">Log In</Link>    
                     </li> 
@@ -52,28 +53,8 @@ const Navigation = () => {
                         <Link to="/signup">Sign up</Link>
                     </li>
                     </ul>
-                    
 
-                        <ul className={styles['account-navigation']}>
-
-                    <li>
-                    <Link to='/account'>Account</Link>
-                    </li>
-                        </ul>
-
-
-                    
-
-
-                    
-            
-
-            
-            
-               
-
-
-
+                )}            
            
         </div>
      );

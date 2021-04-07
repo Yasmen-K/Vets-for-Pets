@@ -6,7 +6,7 @@ const SignUpForm = ({handleSubmit}) => {
         <div className={styles['main-container']}>
 
             
-                <img src="Parrot2.jpg" alt="" className={styles['image-container']}/>
+                <img src="images/Parrot2.jpg" alt="" className={styles['image-container']}/>
               <form onSubmit = {handleSubmit} className={styles['signup-form']}>
   
                   <h2 className={styles['signup-message']} >Sign Up</h2>

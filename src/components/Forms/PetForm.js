@@ -1,16 +1,7 @@
-/* eslint-disable no-useless-constructor */
-import {Component} from 'react'
-import styles from './PetForm.module.css'
+const PetForm = ({handleSubmit}) => {
+    return ( 
 
-class PetForm extends Component {
-    constructor(props) {
-        super(props);
-        
-    }
-    render() { 
-        return ( 
-
-            <form onSubmit = {this.props.handleSubmit} className={styles['pet-form']}>
+        <form onSubmit = {handleSubmit} className={styles['pet-form']}>
 
             <label htmlFor="pet-name">Pet Name</label>
             <input type="text" name="pet-name"/>
@@ -32,8 +23,7 @@ class PetForm extends Component {
             <button>Submit</button>
         </form>
 
-         );
-    }
+     );
 }
  
 export default PetForm;

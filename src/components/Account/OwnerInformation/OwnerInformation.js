@@ -21,7 +21,7 @@ const OwnerInformation = () => {
             </div>
         
 
-        <img src="OwnerInfromation.jpg" alt=""/>
+        <img src="images/OwnerInfromation.jpg" alt=""/>
         
         </form>
         </div>

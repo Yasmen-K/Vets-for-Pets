@@ -2,11 +2,12 @@
 
 
 import LogInForm from './LogInForm/LogInForm'
-import {useState,useEffect} from 'react'
+import {useState,useContext} from 'react'
+import userContext from '../../../../contexts/UserContext'
 
 
 import {auth} from '../../../../Firebase/auth'
-import EventBus from '../../../../EventBus/EventBus'
+
 import {useHistory } from 'react-router-dom'
 
 import styles from './LogIn.module.css'
@@ -18,7 +19,7 @@ const LogIn = () => {
     
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
-    const [userUid,setUserUid] = useState('')
+    const {user,setUser} = useContext(userContext)
     
     
     let history = useHistory()
@@ -37,10 +38,10 @@ const LogIn = () => {
             
             let userUid= user.uid
             
-            setUserUid(user.uid)
+            setUser(user.uid)
             history.push('/account',{userUid})
             
-            EventBus.dispatch('handleSubmit',userUid)
+           
             
             
         })

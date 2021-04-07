@@ -1,39 +1,26 @@
-import {db} from '../../../Firebase/auth'
-import {useEffect,useState} from 'react'
+
+import {useState,useContext} from 'react'
 import styles from './AccountInfo.module.css'
 
 import ChangePetInfo from '../ChangePetInfo/ChangePetInfo'
 import MakeAnAppointment from '../MakeAnAppointment/MakeAnAppointment'
 
-const AccountInfo = (props) => {
-    const [data,setData] = useState([])
+import useCollection from '../../../hooks/useCollection'
+
+import userContext from '../../../contexts/UserContext'
+
+const AccountInfo = () => {
+    
     const [changeButton,setChangeButton] = useState('')
     const [appointmentButton,setAppointmentButton] = useState('')
     const [petChange,setPetChange] = useState('')
     const [makeAnAppointment,setMakeAppointment] = useState('')
 
-    useEffect(() =>{
-       
-        // let array = []
-        // db.collection('user').doc(props.userData).collection('Pets').get()
-        // .then(res =>{
-            
-        //     res.forEach(x =>{
-        //         array.push(x.data())
-        //     })
-        //     setData(array)
-        // })
+    const {user} = useContext(userContext)
+    const [accountInfo] = useCollection(user,[])
 
-        db.collection('user').doc(props.userData).collection('Pets')
-        .onSnapshot(res =>{
-            let array = [];
 
-            res.forEach(x =>{
-                array.push(x.data())
-            })
-            setData(array)
-        }) 
-    },[props.userData])
+    
 
     const handleChangeButtonClick = (petId,e) =>{
             console.log('hello change',petId)
@@ -59,7 +46,7 @@ const AccountInfo = (props) => {
     return ( 
         <div className={styles['main']}>
             
-             {data.map(x =>
+             {accountInfo.map(x =>
                     
                    
 

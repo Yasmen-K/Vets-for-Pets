@@ -1,13 +1,15 @@
 import {db} from '../../../Firebase/auth'
-
+import {useContext} from 'react'
+import userContext from '../../../contexts/UserContext'
 
 
 const ChangePetInfo = ({petName,resetPetChange}) => {
 
-    let userUid = 'vqcWIUj9oHaVRtFJ1VFwVe6GgNR2'
+
+    const {user} = useContext(userContext)
     const handleSubmitEvent = (e) =>{
         e.preventDefault()
-        db.collection('user').doc(userUid).collection('Pets').doc(petName).set({
+        db.collection('user').doc(user).collection('Pets').doc(petName).set({
             petAge:e.target["pet-age"].value,
             petType:e.target["pet-type"].value,
             petBreed:e.target["pet-breed"].value

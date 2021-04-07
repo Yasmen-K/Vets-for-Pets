@@ -9,7 +9,12 @@ import OwnerInformation from '../components/Account/OwnerInformation/OwnerInform
 import ShareYourStory from '../components/Account/ShareYourStory/ShareYourStory'
 import PatientStories from '../components/PatientStories/PatientStories'
 import SeeYourStories from '../components/Account/SeeYourStories/SeeYourStories'
+
+
 const AppRoutes = () => {
+
+    
+
     return ( 
         <div>
             <Switch>
@@ -17,15 +22,17 @@ const AppRoutes = () => {
 
 
         <Route path='/' exact component={Home}/>
-        <Route path='/login' component= {LogIn}/>
-        <Route path="/signup" component={SignUp}/>
-        <Route path="/account" component={Account}/>
         <Route path='/services'component={Services}/>
+        <Route path="/patientstories" component={PatientStories}/>
+        <Route path="/signup" component={SignUp}/>
+        <Route path='/login' component= {LogIn}/>
+        <Route path="/account" component={Account}/>
         <Route path="/petinformation" component={PetInformation}/>
         <Route path="/ownerinformation" component={OwnerInformation}/>
         <Route path="/shareyourstory" component={ShareYourStory}/>
-        <Route path="/patientstories" component={PatientStories}/>
         <Route path="/seeyourstories" component={SeeYourStories}/>
+
+       
 
             </Switch>
 

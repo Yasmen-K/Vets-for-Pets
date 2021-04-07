@@ -1,23 +1,11 @@
-import {useState,useEffect} from 'react'
-import styles from './Services.module.css'
 
+import styles from './Services.module.css'
+import useFetch from '../../hooks/useFetch'
 
 const Services = () => {
 
-    const [services,setServices] = useState([])
+    const [services] = useFetch(`https://vets-for-pets-80140-default-rtdb.firebaseio.com/Services.json`,[])
 
-    useEffect(() =>{
-        fetch(`https://vets-for-pets-80140-default-rtdb.firebaseio.com/Services.json`)
-        .then(res => res.json())
-        .then(data =>{
-            
-           setServices(data)
-            
-        })
-        .catch(err =>{
-            console.log(err.message)
-        })
-    },[])
 
     return ( 
         <div className={styles['service-wrapper']}>

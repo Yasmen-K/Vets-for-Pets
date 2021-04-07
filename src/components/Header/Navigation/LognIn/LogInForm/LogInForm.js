@@ -50,7 +50,7 @@ const LogInForm = ({handleSubmit,email,password}) => {
             
 
             
-            <img src="Black-German-Shepherd.jpg" alt="" className={styles["image-container"]}/>
+            <img src="images/Black-German-Shepherd.jpg" alt="" className={styles["image-container"]}/>
 
             <form onSubmit={(e) => handleSubmit(e)} className={styles["logIn-form"]} >
             <h1 className={styles["login-message"]}>Member Login</h1>
