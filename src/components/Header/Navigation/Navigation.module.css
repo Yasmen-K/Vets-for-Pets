@@ -13,9 +13,9 @@
     margin: 0;
     padding: 0;
     
-    grid-column: 4/8;
+    grid-column: 7/9;
     grid-row: 1;
-    justify-self: end;
+    justify-self: stretch;
     align-self:end;
     display: inline;
 }
@@ -23,13 +23,20 @@
 
 .main-navigation li{
     display: inline;
-    padding: 10px;
+   
     
 }
 
+.main-navigation a{
+    padding: 0 2%;
+}
+.main-navigation li:hover{
+    border-bottom:3px solid orange;
+}
+
 .additional-navigation{
-    grid-column: 8/10;
-    justify-self: stretch;
+    grid-column: 10/11;
+    justify-self: stretch; 
     align-self: end;
     display: inline;
     grid-row: 1;
@@ -41,19 +48,28 @@
 .additional-navigation li{
     
     display: inline;
-    padding: 10px;
     
+    
+}
+
+.additional-navigation li:hover{
+    border-bottom:3px solid orange;
+}
+
+.additional-navigation a{
+    padding:0 4%;
 }
 
 
 
 .account-navigation{
     grid-column: 10/11 ;
-    justify-self: start;
+    justify-self: center;
     align-self: end;
     grid-row: 1;
     margin: 0;
     padding: 0;
+    
 }
 
 .account-navigation li{

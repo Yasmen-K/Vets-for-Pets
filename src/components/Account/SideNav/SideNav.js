@@ -22,11 +22,13 @@ const SideNav = () => {
             </li>
 
              <li>
+                <i className="fas fa-comment-alt"></i>
                 <Link to="/shareyourstory">Share Your Story</Link>
             </li>
 
 
             <li>
+                <i className="far fa-eye"></i>
                 <Link to="/seeyourstories">See Your Stories</Link>
             </li>
 

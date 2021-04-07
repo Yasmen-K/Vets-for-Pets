@@ -1,32 +1,18 @@
 import styles from './OwnerInformation.module.css'
 import SideNav from '../SideNav/SideNav'
-
+import OwnerInformationForm from './OwnerInformationForm/OwnerInformationForm'
 
 const OwnerInformation = () => {
     return ( 
-        <div>
-
-        <SideNav/>
-
-        <form className={styles['container']}>
-            <div className={styles['main']}>
-
-            <label htmlFor="owner-name">Enter Owner Name</label>
-            <input type="text" id="owner-name" name="owner-name"/>
-
-            <label htmlFor="owner-phone">Enter Owner Phone</label>
-            <input type="number" name="owner-phone"/>
-
-            <button>Submit</button>
-            </div>
         
 
-        <img src="images/OwnerInfromation.jpg" alt=""/>
-        
-        </form>
+
+        <div className={styles['main']}>
+            <SideNav/>
+           
+            <OwnerInformationForm />
+                
         </div>
-
-
         
 
         
