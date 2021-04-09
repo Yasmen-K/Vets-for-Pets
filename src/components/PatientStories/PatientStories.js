@@ -31,16 +31,16 @@ class PatientStories extends Component {
             <div className={styles['main']}>
 
                 <h1>TAILS FROM THE CLINIC</h1>
-                    <div className={styles['data-wrapper']}>
+                    
 
                 {this.state.stories.map(x =>
-                    <div className={styles['stories-wrapper']}>
-                        <h1>{x.title}</h1>
-                        <p>{x.content}</p>
+                    <div className={styles['story-wrapper']}>
+                        <h3 className={styles["story-title"]}>{x.title}</h3>
+                        <p className={styles["story-content"]}>{x.content}</p>
                     </div>
                     )}
                     </div>
-            </div>
+            
          );
     }
 }

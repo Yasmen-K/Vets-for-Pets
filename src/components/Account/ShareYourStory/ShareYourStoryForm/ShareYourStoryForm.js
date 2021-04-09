@@ -1,10 +1,13 @@
 import {useState} from 'react'
 import styles from './ShareYourStoryForm.module.css'
 
+
 const ShareYourStoryForm = ({handleSubmit}) => {
 
     const [title,setTitle] = useState('')
     const [content,setContent] = useState('')
+    
+
     return ( 
 
         <form onSubmit={(e) => handleSubmit(e,title,content)} className={styles["story-form"]}>

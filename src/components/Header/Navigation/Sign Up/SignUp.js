@@ -4,7 +4,7 @@ import {useState} from 'react'
 import styles from './SignUp.module.css'
 
 import SignUpForm from './SignUpForm/SignUpForm'
-import validation from '../../../../FormValidators/FormValidator'
+
 
 
 const SignUp = () => {
@@ -19,7 +19,7 @@ let handleSubmit = (e) =>{
     setPassword(e.target.password.value)
     setEmail(e.target.email.value)
 
-    validation(email,password)
+   
 
     auth.createUserWithEmailAndPassword(email, password)
   .then((userCredential) => {

@@ -3,6 +3,7 @@ import {db} from '../../../Firebase/auth'
 import SideNav from '../SideNav/SideNav'
 import {useContext} from 'react'
 import userContext from '../../../contexts/UserContext'
+import styles from './PetInformation.module.css'
 
 
 const PetInformation = () => {
@@ -28,7 +29,7 @@ const PetInformation = () => {
     }
 
     return ( 
-        <div>
+        <div className={styles["main"]}>
             <SideNav/>
             <PetForm handleSubmit={handleSubmit}/>
         </div>

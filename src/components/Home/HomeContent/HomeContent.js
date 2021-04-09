@@ -18,7 +18,7 @@ const HomeContent = () => {
                     
         {mainContent.map(x=>
               <div key={x.id}>
-              <h3>{x.title}</h3>
+              <h3 className={styles["main-title"]}>{x.title}</h3>
           <div  className={styles['flex-wrapper']}>
               <p>{x.content}</p>
               <img src={`images/${x.img}`} alt="" className={styles[x.id]}/>

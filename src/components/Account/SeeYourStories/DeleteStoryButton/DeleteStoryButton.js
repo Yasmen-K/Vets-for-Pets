@@ -1,5 +1,6 @@
 
 import {db} from '../../../../Firebase/auth'
+import styles from './DeleteStoryButton.module.css'
 
 const DeleteStory = ({title}) => {
     
@@ -13,7 +14,7 @@ const DeleteStory = ({title}) => {
     
     return ( 
 
-        <div>
+        <div className={styles["delete-story"]}>
             <button onClick={deleteStoryHandler}>Delete Story</button>
         </div>
      );

@@ -28,9 +28,9 @@ const SeeYourStories = () => {
         
              {stories.map(x => 
                 <div key={x.id} className={styles["story-container"]}>
-                    <h1>{x.title}</h1>
-                    <p>{x.content}</p>
-                    <DeleteStory title={x.title}/>
+                    <h1 className={styles["story-title"]}>{x.title}</h1>
+                    <p className={styles["story-content"]}>{x.content}</p>
+                    <DeleteStory className={styles["delete-story"]} title={x.title}/>
                     <ChangeStoryButton title={x.title}/>
                 </div>
                 )}  
