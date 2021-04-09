@@ -1,6 +1,6 @@
 import styles from './OwnerInformationForm.module.css'
 
-const OwnerInformationForm = () => {
+const OwnerInformationForm = ({handleSubmit}) => {
     return ( 
 
         <div className={styles["main-container"]}>
@@ -9,23 +9,21 @@ const OwnerInformationForm = () => {
             
             <img src="images/Owner-Infromation.jpg" alt="dog and girl" className={styles["image-container"]}/>
 
-            <form  className={styles["logIn-form"]} >
+            <form onSubmit={handleSubmit} className={styles["logIn-form"]} >
             <h1 className={styles["login-message"]}>Owner Information</h1>
 
-            <label htmlFor="email">Enter name</label>
+            <label htmlFor="name">Enter name</label>
             <input 
-            type="email"
-            name="email"
-            
+            type="text"
+            name="name"
             required
             />
 
 
-            <label htmlFor="password">Enter phone number</label>
+            <label htmlFor="telephone">Enter phone number</label>
             <input 
-            type="password"
-            
-            name="password"
+            type="tel"
+            name="telephone"
             required
             />
 

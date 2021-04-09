@@ -14,6 +14,7 @@ import styles from './LogIn.module.css'
 
 
 
+
 const LogIn = () => {
     
     
@@ -29,8 +30,10 @@ const LogIn = () => {
     function handleSubmit(e){
         e.preventDefault()
       
-        setEmail(e.target.email.value)
+        setEmail(e.target.email.value.trim())
         setPassword(e.target.password.value)
+
+        
         auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             // Signed in

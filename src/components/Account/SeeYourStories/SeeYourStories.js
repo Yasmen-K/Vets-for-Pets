@@ -1,5 +1,4 @@
 
-import {db} from '../../../Firebase/auth'
 
 import styles from './SeeYourStories.module.css'
 
@@ -7,41 +6,28 @@ import DeleteStory from './DeleteStoryButton/DeleteStoryButton'
 import ChangeStoryButton from './ChangeStoryButton/ChangeStoryButton'
 import SideNav from '../SideNav/SideNav'
 
-import {useContext,useEffect,useState} from 'react'
+import {useContext} from 'react'
 import userContext from '../../../contexts/UserContext'
+import useCollection from '../../../hooks/useCollection'
 
 
 
 const SeeYourStories = () => {
 
     const {user} = useContext(userContext)
-    const [stories,setStories] = useState([])
+    
+    const [stories] = useCollection(user,"Stories",[])
 
-    useEffect(() =>{
-
-        db.collection('user').doc(user).collection('Stories')
-        .onSnapshot(res =>{
-            let array = [];
-
-            res.forEach(x =>{
-                array.push(x.data())
-            })
-        
-            setStories(array)
-         
-        }) 
-
-    },[user])
-
+    
     return ( 
 
-        <div>
+        <div className={styles["main"]}>
 
-        <SideNav/>
+        <SideNav className={styles["side-nav"]}/>
 
-        <div className={styles['main']}>
+        
              {stories.map(x => 
-                <div key={x.id}>
+                <div key={x.id} className={styles["story-container"]}>
                     <h1>{x.title}</h1>
                     <p>{x.content}</p>
                     <DeleteStory title={x.title}/>
@@ -49,7 +35,7 @@ const SeeYourStories = () => {
                 </div>
                 )}  
         </div>
-        </div>
+        
      );
 }
  

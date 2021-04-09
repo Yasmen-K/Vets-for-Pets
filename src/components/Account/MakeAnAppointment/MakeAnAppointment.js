@@ -3,7 +3,7 @@ const MakeAnAppointment = ({resetMakeAnAppointment}) => {
     const handleSubmit = (e) =>{
         e.preventDefault()
 
-        resetMakeAnAppointment(true,true)
+        resetMakeAnAppointment(true,false)
     }
     
     return ( 

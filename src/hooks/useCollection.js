@@ -2,7 +2,7 @@ import {useState,useEffect} from 'react'
 import {db} from '../Firebase/auth'
 
 
-    const useCollection = (user,initialValue) =>{
+    const useCollection = (user,collection,initialValue) =>{
 
         const [data,setData] = useState(initialValue)
         
@@ -10,7 +10,7 @@ import {db} from '../Firebase/auth'
         useEffect(() =>{
             if (user){
                 
-                db.collection('user').doc(user).collection('Pets')
+                db.collection('user').doc(user).collection(collection)
             .onSnapshot(res =>{
                 let array = [];
     
@@ -21,7 +21,7 @@ import {db} from '../Firebase/auth'
             })
             }
     
-        },[user])
+        },[user,collection])
     
         return[
             data,

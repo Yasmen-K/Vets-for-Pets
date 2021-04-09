@@ -13,13 +13,13 @@ class PetForm extends Component {
             <form onSubmit = {this.props.handleSubmit} className={styles['pet-form']}>
 
             <label htmlFor="pet-name">Pet Name</label>
-            <input type="text" name="pet-name"/>
+            <input type="text" name="pet-name" required/>
 
             <label htmlFor="pet-age">Pet Age</label>
-            <input type="text" name="pet-age"/>
+            <input type="text" name="pet-age" required/>
 
             <label htmlFor="pet-type">Pet type</label>
-            <select name="pet-type">
+            <select name="pet-type" required>
                 <option>Dog</option>
                 <option>Cat</option>
                 <option>Bird</option>
@@ -27,7 +27,7 @@ class PetForm extends Component {
             </select>
 
             <label htmlFor="breed">Pet Breed</label>
-            <input type="text" name="pet-breed"/>
+            <input type="text" name="pet-breed" required/>
 
             <button>Submit</button>
         </form>

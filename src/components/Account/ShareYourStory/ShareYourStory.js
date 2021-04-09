@@ -1,46 +1,44 @@
-import {useState} from 'react'
+
 
 import styles from './ShareYourStory.module.css'
 
 import {db} from '../../../Firebase/auth'
 
+import ShareYourStoryForm from './ShareYourStoryForm/ShareYourStoryForm'
+
+import SideNav from '../SideNav/SideNav'
+
+import {useContext} from 'react'
+import userContext from '../../../contexts/UserContext'
+
 const ShareYourStory = () => {
 
-    let userUid = 'vqcWIUj9oHaVRtFJ1VFwVe6GgNR2'
+    const {user} = useContext(userContext)
 
-    const [title,setTitle] = useState('')
-    const [content,setContent] = useState('')
 
-    const handleSubmit = ((e) =>{
+    const handleSubmit = ((e,title,content) =>{
         e.preventDefault()
         console.log("submit")
 
-        db.collection('user').doc(userUid).collection('Stories').doc(title).set({
+        db.collection('user').doc(user).collection('Stories').doc(title).set({
            title:title,
            content:content
         })
         .then(res =>{
             console.log(res)
         })
+
+        e.target.title.value =''
+        e.target.content.value = ''
     })
+
+    
     
     return ( 
         <div className={styles['main']}>
             <h1>Add Story</h1>
-
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="title">Story Title:</label>
-                <input type="text" name="heading" onChange={(e) => setTitle(e.target.value)}/>
-
-                <label htmlFor="story-content">Story Content:</label>
-                <textarea onChange={(e) => setContent(e.target.value)}></textarea>
-            <div className={styles['preview-story']}>
-                <h2>Preview Before You Share</h2>
-                <h1>You will see the title here: {title}</h1>
-                <p>You will see the content here: {content}</p>
-            </div>
-                <button>Share Story</button>
-            </form>
+            <SideNav className={styles["side-nav"]}/>
+            <ShareYourStoryForm handleSubmit={handleSubmit}/>
 
         </div>
      );

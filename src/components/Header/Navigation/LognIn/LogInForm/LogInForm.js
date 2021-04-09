@@ -1,46 +1,15 @@
 // import {useState} from 'react'
 import styles from './LogInForm.module.css'
+
 // import {auth} from '../../../../../Firebase/auth'
 // import EventBus from '../../../../../EventBus/EventBus'
 // import {useHistory } from 'react-router-dom'
 
 
-const LogInForm = ({handleSubmit,email,password}) => {
+const LogInForm = ({handleSubmit}) => {
     
     
-    
-    // let history = useHistory()
-    
-    // const [userUid,setUserUid] = useState('')
-
-    // async function LogIn(){
-
-
-    //    await auth.signInWithEmailAndPassword(email, password)
-    //        .then((userCredential) => {
-    //            // Signed in
-    //            var user = userCredential.user;
-               
-    //            console.log(user.uid)
-    
-    //             setUserUid(user.uid)
-                
-                
-    //             history.push('/account')
-    //             EventBus.dispatch('handleSubmit',userUid)
-                
-    //         })
-    //         .catch((error) => {
-    //             //var errorCode = error.code;
-                
-    //             var errorMessage = error.message;
-    //             console.log(errorMessage)
-                
-    //         });
-            
-
-    // }
-            
+  
         
         
        

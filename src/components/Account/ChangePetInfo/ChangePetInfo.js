@@ -3,7 +3,7 @@ import {useContext} from 'react'
 import userContext from '../../../contexts/UserContext'
 
 
-const ChangePetInfo = ({petName,resetPetChange}) => {
+const ChangePetInfo = ({petName,resetPetChange,petChange}) => {
 
 
     const {user} = useContext(userContext)
@@ -18,7 +18,8 @@ const ChangePetInfo = ({petName,resetPetChange}) => {
             console.log(res)
         })
 
-        resetPetChange(true,true)
+       resetPetChange(false)
+
 
     }
 

@@ -1,12 +1,14 @@
 .main{
-    margin-top: 15%;
+    margin-top: 7%;
     border: 2px solid black;
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(10,1fr);
 }
 
-.preview-story{
-    border: 2px solid black;
-}
-
-.preview-story h1{
-    border: 2px solid black;
+.main h1{
+    
+    grid-column: 5/7;
+    grid-row: 1;
+    justify-self: center;
 }

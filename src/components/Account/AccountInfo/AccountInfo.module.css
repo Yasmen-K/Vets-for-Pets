@@ -1,13 +1,15 @@
 .main{
     
     grid-column: 3 /10;
+    grid-row: span 8;
     display: grid;
 
-    grid-template-columns: repeat(3,1fr);
-    column-gap: 5%;
-    row-gap: 15%;
+    grid-template-columns: repeat(7,1fr);
+    grid-template-rows: repeat(3,1fr);
+    column-gap: 4%;
+    row-gap: 4%;
     margin-top: 4%;
-    border: 2px solid black;
+  
     
     
     
@@ -21,6 +23,10 @@
     background-color: floralwhite;
     text-align: center;
     border-radius: 4px;
+    
+    grid-column: 3/6 ; 
+    
+ 
 }
 
 .pets-displayed button{

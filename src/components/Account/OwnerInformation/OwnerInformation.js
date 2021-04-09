@@ -1,8 +1,32 @@
 import styles from './OwnerInformation.module.css'
 import SideNav from '../SideNav/SideNav'
 import OwnerInformationForm from './OwnerInformationForm/OwnerInformationForm'
+import {db} from '../../../Firebase/auth'
+import {useContext} from 'react'
+import userContext from '../../../contexts/UserContext'
+
 
 const OwnerInformation = () => {
+
+    const {user} = useContext(userContext)
+
+
+    const handleSubmit = (e) =>{
+            e.preventDefault()
+            console.log(e.target.name.value)
+
+            db.collection('user').doc(user).set({
+                "Owner name":e.target.name.value,
+                "Owner phone":e.target.telephone.value,
+                
+            },{merge:true})
+            .then(res =>{
+                console.log(res)
+            })
+
+            e.target.name.value ="";
+            e.target.telephone.value = "";
+    }
     return ( 
         
 
@@ -10,7 +34,7 @@ const OwnerInformation = () => {
         <div className={styles['main']}>
             <SideNav/>
            
-            <OwnerInformationForm />
+            <OwnerInformationForm handleSubmit={handleSubmit}/>
                 
         </div>
         
