@@ -1,19 +1,15 @@
-import {Component} from 'react'
+
 import styles from './PatientStories.module.css'
 import {db} from '../../Firebase/auth'
+import {useState,useEffect} from 'react'
 
 
-class PatientStories extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            stories:[],
-            userUid:'vqcWIUj9oHaVRtFJ1VFwVe6GgNR2'
-            
-         }
-    }
 
-    componentDidMount(){
+const PatientStories = () => {
+
+    const [stories,setStories] = useState([])
+
+    useEffect(() =>{
         db.collection('stories')
         .onSnapshot(res =>{
             let array = [];
@@ -21,28 +17,25 @@ class PatientStories extends Component {
             res.forEach(x =>{
                 array.push(x.data())
             })
-            this.setState({stories:array})
-            console.log(this.state.stories)
+            setStories(array)
+            console.log(stories)
         }) 
-    }
+    },[stories])
 
-    render() { 
-        return ( 
-            <div className={styles['main']}>
+    return ( 
+        <div className={styles['main']}>
 
                 <h1>TAILS FROM THE CLINIC</h1>
                     
 
-                {this.state.stories.map(x =>
+                {stories.map(x =>
                     <div className={styles['story-wrapper']}>
                         <h3 className={styles["story-title"]}>{x.title}</h3>
                         <p className={styles["story-content"]}>{x.content}</p>
                     </div>
                     )}
                     </div>
-            
-         );
-    }
+     );
 }
  
 export default PatientStories;

@@ -34,6 +34,15 @@ const ShareYourStory = () => {
             console.log(res)
         })
 
+        db.collection('stories').doc(title).set({
+            id:content.length + content[1] + title[1] + title.length,
+             title:title,
+             content:content
+          })
+          .then(res =>{
+              console.log(res)
+          })
+
         e.target.title.value =''
         e.target.content.value = ''
     })
