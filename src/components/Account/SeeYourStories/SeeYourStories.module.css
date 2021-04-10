@@ -19,7 +19,6 @@
     grid-template-columns: repeat(10,1fr);
     grid-template-rows: 20% 20% 20% 20% 20%;
     margin-right: 4%;
-    
 }
 
 .story-container .story-title{
@@ -36,8 +35,9 @@
     display: inline;
     grid-column: 2/10;
     grid-row: span 3;
-   
-   
+    overflow: auto;
+    
+    
 }
 
 

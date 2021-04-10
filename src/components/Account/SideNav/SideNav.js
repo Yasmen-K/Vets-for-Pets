@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom'
 import styles from './SideNav.module.css'
+import LogOut from './LogOut/LogOut'
 
 
 const SideNav = () => {
@@ -33,7 +34,7 @@ const SideNav = () => {
             </li>
 
             <li>
-                {/* <Link>Make an appointment</Link> */}
+                <LogOut/>
             </li> 
 
         </ul>

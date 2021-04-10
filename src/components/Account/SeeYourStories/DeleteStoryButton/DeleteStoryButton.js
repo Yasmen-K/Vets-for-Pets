@@ -8,7 +8,7 @@ const DeleteStory = ({title}) => {
     
     const deleteStoryHandler = () =>{
         db.collection('user').doc(userUid).collection('Stories').doc(title).delete()
-        console.log('Delete')
+        
     }
     
     

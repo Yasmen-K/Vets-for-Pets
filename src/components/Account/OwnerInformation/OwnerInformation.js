@@ -13,7 +13,7 @@ const OwnerInformation = () => {
 
     const handleSubmit = (e) =>{
             e.preventDefault()
-            console.log(e.target.name.value)
+            
 
             db.collection('user').doc(user).set({
                 "Owner name":e.target.name.value,

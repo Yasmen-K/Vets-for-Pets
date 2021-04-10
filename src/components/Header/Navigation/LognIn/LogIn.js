@@ -2,24 +2,20 @@
 
 
 import LogInForm from './LogInForm/LogInForm'
-import {useState,useContext} from 'react'
+import {useContext} from 'react'
 import userContext from '../../../../contexts/UserContext'
 
 
 import {auth} from '../../../../Firebase/auth'
 
-import {useHistory } from 'react-router-dom'
 
 import styles from './LogIn.module.css'
 
-
+import {useHistory} from 'react-router-dom'
 
 
 const LogIn = () => {
     
-    
-    const [email,setEmail] = useState('')
-    const [password,setPassword] = useState('')
     const {user,setUser} = useContext(userContext)
     
     
@@ -29,24 +25,19 @@ const LogIn = () => {
     
     function handleSubmit(e){
         e.preventDefault()
-      
-        setEmail(e.target.email.value.trim())
-        setPassword(e.target.password.value)
+        
+        
+       let email = e.target.email.value
+       let password = e.target.password.value
 
         
-        auth.signInWithEmailAndPassword(email, password)
+        auth.signInWithEmailAndPassword(email,password)
         .then((userCredential) => {
             // Signed in
-            var user = userCredential.user;
-            
-            let userUid= user.uid
-            
+            let user = userCredential.user;
+        
             setUser(user.uid)
-            history.push('/account',{userUid})
-            
-           
-            
-            
+            history.push('/account')
         })
         .catch((error) => {
             //var errorCode = error.code;
@@ -66,7 +57,7 @@ const LogIn = () => {
         
         <div className={styles['main']}>
            
-            <LogInForm handleSubmit={handleSubmit} password={password} email={email}/>
+            <LogInForm handleSubmit={handleSubmit}/>
                 
         </div>
      );

@@ -1,29 +1,16 @@
-
-
 import styles from './ShareYourStory.module.css'
-
 import {db} from '../../../Firebase/auth'
-
 import ShareYourStoryForm from './ShareYourStoryForm/ShareYourStoryForm'
-
 import SideNav from '../SideNav/SideNav'
-
 import {useContext} from 'react'
 import userContext from '../../../contexts/UserContext'
-
-
 
 const ShareYourStory = () => {
 
     const {user} = useContext(userContext)
-    
 
-
-   
     const handleSubmit = ((e,title,content) =>{
         e.preventDefault()
-        
-        
 
         db.collection('user').doc(user).collection('Stories').doc(title).set({
           id:content.length + content[1] + title[1] + title.length,

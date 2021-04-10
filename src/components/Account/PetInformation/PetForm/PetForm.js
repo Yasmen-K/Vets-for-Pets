@@ -16,7 +16,8 @@ class PetForm extends Component {
             <input type="text" name="pet-name" required/>
 
             <label htmlFor="pet-age">Pet Age</label>
-            <input type="text" name="pet-age" required/>
+            <input type="number" min="1" max="15" name="pet-age" required/>
+          
 
             <label htmlFor="pet-type">Pet type</label>
             <select name="pet-type" required>

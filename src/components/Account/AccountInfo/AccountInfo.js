@@ -36,7 +36,7 @@ const AccountInfo = () => {
     return ( 
         <div className={styles['main']}>
             
-             {accountInfo.map(x =>
+             {!accountInfo ? (<p>Wellcome</p>) : (accountInfo.map(x =>
                       
                     <div key={x.id} className={styles['pets-displayed']}>
                     <h1>Pet Name:{x.petName}</h1>
@@ -46,7 +46,7 @@ const AccountInfo = () => {
                    
                      {(changeButton === x.id && !petChange ) ? <ChangePetInfo petName={x.petName} resetPetChange={resetPetChange} petChange={petChange}/> : ''} 
                      
-                </div>
+                </div>)
                 
                 )} 
 

@@ -18,9 +18,9 @@ const PatientStories = () => {
                 array.push(x.data())
             })
             setStories(array)
-            console.log(stories)
+            
         }) 
-    },[stories])
+    },[])
 
     return ( 
         <div className={styles['main']}>
@@ -29,7 +29,7 @@ const PatientStories = () => {
                     
 
                 {stories.map(x =>
-                    <div className={styles['story-wrapper']}>
+                    <div className={styles['story-wrapper']} key={x.id}>
                         <h3 className={styles["story-title"]}>{x.title}</h3>
                         <p className={styles["story-content"]}>{x.content}</p>
                     </div>

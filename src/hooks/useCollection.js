@@ -19,6 +19,8 @@ import {db} from '../Firebase/auth'
                 })
                 setData(array)
             })
+            
+            
             }
     
         },[user,collection])

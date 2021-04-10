@@ -1,17 +1,18 @@
 .service-wrapper{
     margin-top: 8%;
-    border: 2px solid black;
     display: grid;
     grid-template-columns: repeat(12,1fr);
     row-gap: 15px;
-    /* grid-template-rows: repeat(5,1fr); */
+    column-gap: 3%;
+    padding: 0 3%;
 }
 
 .service-data{
-    grid-column: 2/10;
+    grid-column: span 4;
     background-color: cornflowerblue;
     border: 2px solid black;
     border-radius: 4px;
+    overflow: auto;
 }
 
 .service-data img{

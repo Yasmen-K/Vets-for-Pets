@@ -14,18 +14,22 @@ const PetInformation = () => {
     
     const handleSubmit = (e) =>{
         e.preventDefault()
-        console.log(e.target["pet-type"].value)
+        
 
             db.collection('user').doc(user).collection('Pets').doc(e.target['pet-name'].value).set({
             petName:e.target["pet-name"].value,
             petAge:e.target["pet-age"].value,
             petType:e.target["pet-type"].value,
-            petBreed:e.target["pet-breed"].value
+            petBreed:e.target["pet-breed"].value,
+            id:e.target["pet-name"].value[2] + e.target["pet-type"].value[1] + e.target["pet-breed"].value[1]
         })
         .then(res =>{
             console.log(res)
         })
         
+        e.target["pet-name"].value = ""
+        e.target["pet-age"].value =""
+        e.target["pet-breed"].value = ""
     }
 
     return ( 

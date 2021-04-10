@@ -21,7 +21,7 @@ const LogInForm = ({handleSubmit}) => {
             
             <img src="images/Black-German-Shepherd.jpg" alt="" className={styles["image-container"]}/>
 
-            <form onSubmit={(e) => handleSubmit(e)} className={styles["logIn-form"]} >
+            <form onSubmit={handleSubmit} className={styles["logIn-form"]} >
             <h1 className={styles["login-message"]}>Member Login</h1>
 
             <label htmlFor="email">Enter email</label>
